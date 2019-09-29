@@ -3,6 +3,7 @@ package main
 import (
 	"ben_gin_study/app/controller"
 	chat_controller "ben_gin_study/app/controller/chat"
+	_ "ben_gin_study/app/dbserver"
 	"ben_gin_study/config"
 	_ "ben_gin_study/logs"
 	"ben_gin_study/utils/utils_cookie"
@@ -43,6 +44,7 @@ func main() {
 		{
 			var userController = new(controller.UserController)
 			user.GET("/index", userController.Get)
+			user.POST("/", userController.Create)
 		}
 	}
 

@@ -4,6 +4,7 @@ import (
 	"ben_gin_study/app/model"
 	. "ben_gin_study/config"
 	"fmt"
+	_ "github.com/go-sql-driver/mysql"
 	"github.com/go-xorm/xorm"
 	"github.com/sirupsen/logrus"
 	"log"

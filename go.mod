@@ -5,7 +5,8 @@ go 1.12
 require (
 	github.com/Unknwon/goconfig v0.0.0-20190425194916-3dba17dd7b9e
 	github.com/gin-gonic/gin v1.4.1-0.20190924141841-9b9f4fab34cc
-	github.com/go-xorm/xorm v0.7.7 // indirect
+	github.com/go-sql-driver/mysql v1.4.1
+	github.com/go-xorm/xorm v0.7.7
 	github.com/gorilla/websocket v1.4.1
 	github.com/modern-go/concurrent v0.0.0-20180306012644-bacd9c7ef1dd // indirect
 	github.com/modern-go/reflect2 v1.0.1 // indirect
