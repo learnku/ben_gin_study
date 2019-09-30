@@ -3,9 +3,7 @@ package controller
 import (
 	"ben_gin_study/app/dbserver"
 	"ben_gin_study/app/model"
-	"fmt"
 	"github.com/gin-gonic/gin"
-	"log"
 )
 
 type UserController struct {
@@ -13,7 +11,6 @@ type UserController struct {
 }
 
 func (this *UserController) Get(ctx *gin.Context) {
-	fmt.Printf("%#v", ctx.Request.Header.Get("User-Agent"))
 	this.RespSuccess(ctx, gin.H{
 		"ip": ctx.ClientIP(),
 	}, nil)
@@ -21,9 +18,15 @@ func (this *UserController) Get(ctx *gin.Context) {
 
 func (this *UserController) Create(ctx *gin.Context) {
 	mod := model.User{}
+	server := new(dbserver.User)
 	if err := ctx.ShouldBind(&mod); err != nil{
-		log.Fatal(err)
+		this.RespError(ctx, err.Error())
 	} else {
-		new(dbserver.User).Insert(&mod)
+		id, err := server.Insert(mod)
+		if err != nil{
+			this.RespError(ctx, err.Error())
+			return
+		}
+		this.RespCreated(ctx, id, "创建成功")
 	}
 }

@@ -23,7 +23,7 @@ func init() {
 	// 日志写入文件并分割日志
 	lumberjackLogger := &lumberjack.Logger{
 		Filename:   "logs/runtime/runtime.log", // 要写入日志的文件
-		MaxSize:    10,                         // 日志文件最大允许的大小，默认 100M
+		MaxSize:    50,                         // 日志文件最大允许的大小，默认 100M
 		MaxBackups: 30,                         // 要保留多少个旧日志文件
 		MaxAge:     30,                         // 日志文件保留多少天后删除，单位：天
 		Compress:   false,                      // disabled by default

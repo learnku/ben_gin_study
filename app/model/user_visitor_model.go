@@ -9,5 +9,5 @@ type UserVisitor struct {
 	Ip                string                 `json:"ip"`
 	Extra             map[string]interface{} `json:"extra"`
 	NotificationCount int                    `json:"notification_count"`
-	CreatedAt         time.Time              `json:"created_at"`
+	CreatedAt         time.Time              `xorm:"created" json:"created_at"`
 }

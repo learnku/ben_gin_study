@@ -26,12 +26,13 @@ func (this BaseController) RespError(ctx *gin.Context, msg interface{}) {
 }
 
 // 201 创建成功响应
-func (this BaseController) RespCreated(ctx *gin.Context, msg interface{}) {
+func (this BaseController) RespCreated(ctx *gin.Context, id int64, msg interface{}) {
 	if msg == nil {
 		msg = "创建成功"
 	}
 	ctx.JSON(http.StatusCreated, gin.H{
-		"msg":    msg,
+		"id":  id,
+		"msg": msg,
 	})
 }
 
@@ -46,7 +47,7 @@ func (this BaseController) RespUnauthorized(ctx *gin.Context, msg interface{}) {
 		msg = "Unauthorized"
 	}
 	ctx.JSON(http.StatusUnauthorized, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }
 
@@ -56,7 +57,7 @@ func (this BaseController) RespForbidden(ctx *gin.Context, msg interface{}) {
 		msg = "Forbidden"
 	}
 	ctx.JSON(http.StatusForbidden, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }
 
@@ -66,7 +67,7 @@ func (this BaseController) RespNotFound(ctx *gin.Context, msg interface{}) {
 		msg = "NotFound"
 	}
 	ctx.JSON(http.StatusNotFound, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }
 
@@ -76,7 +77,7 @@ func (this BaseController) RespTooManyRequests(ctx *gin.Context, msg interface{}
 		msg = "TooManyRequests"
 	}
 	ctx.JSON(http.StatusTooManyRequests, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }
 
@@ -86,7 +87,7 @@ func (this BaseController) RespInternalServerError(ctx *gin.Context, msg interfa
 		msg = "InternalServerError"
 	}
 	ctx.JSON(http.StatusInternalServerError, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }
 
@@ -96,6 +97,6 @@ func (this BaseController) RespServiceUnavailable(ctx *gin.Context, msg interfac
 		msg = "ServiceUnavailable"
 	}
 	ctx.JSON(http.StatusServiceUnavailable, gin.H{
-		"msg":    msg,
+		"msg": msg,
 	})
 }

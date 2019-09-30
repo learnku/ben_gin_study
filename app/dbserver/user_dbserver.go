@@ -2,7 +2,6 @@ package dbserver
 
 import (
 	"ben_gin_study/app/model"
-	"fmt"
 	"github.com/sirupsen/logrus"
 )
 
@@ -30,6 +29,8 @@ func (s *User) CreateTable() {
 }
 
 // 插入
-func (s *User) Insert(user *model.User) {
-	fmt.Println(user.Email)
+func (s *User) Insert(user model.User) (id int64, err error) {
+	_, err = DbEngin.Insert(&user)
+	id = user.Id
+	return
 }

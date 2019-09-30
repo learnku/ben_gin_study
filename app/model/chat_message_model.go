@@ -10,5 +10,5 @@ type Message struct {
 	AcceptUserRole int       `json:"accept_user_role"`
 	CookieName     string    `json:"cookie_name"`
 	Content        string    `json:"content"`
-	CreatedAt      time.Time `json:"created_at"`
+	CreatedAt      time.Time `xorm:"created" json:"created_at"`
 }

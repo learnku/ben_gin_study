@@ -13,6 +13,6 @@ type User struct {
 	Online            int       `json:"online"`
 	CompanyId         int       `json:"company_id"`
 	NotificationCount int       `json:"notification_count"`
-	CreatedAt         time.Time `json:"created_at"`
-	UpdatedAt         time.Time `json:"updated_at"`
+	CreatedAt         time.Time `xorm:"created" json:"created_at"`
+	UpdatedAt         time.Time `xorm:"updated" json:"updated_at"`
 }
